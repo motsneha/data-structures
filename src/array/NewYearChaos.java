@@ -10,32 +10,32 @@ public class NewYearChaos {
     static void minimumBribes(int[] q) {
         int n = q.length;
         int total = 0;
-        for (int i = n - 1; i >= 0; i = i - 1) {
 
-            if (q[i] == i + 1) {
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            int j = i + 1;
+            if (j == q[i]) {
                 continue;
             } else {
-                int j = i - 1;
-                while (j > 0) {
-                    int count = 0;
-                    if (q[j] == i + 1) {
-                        int temp = q[j];
-                        q[j] = q[i];
-                        q[i] = temp;
-                        count++;
-                        total++;
-                    }
-                    if(count > 2){
-                        System.out.println("Too chaotic");
-                        return;
-                    }
-                    j--;
+
+                if (j > q[i]) {
+
+                } else if (j < q[i]) {
 
                 }
+                int temp = q[i];
+                q[i] = j;
+                q[temp - 1] = temp;
+                count = temp - j;
+                total = total + count;
+                System.out.println();
+                System.out.println("Count for index  " + i + " is " + count);
             }
-            System.out.println(total);
-        }
+
     }
+        System.out.println(total);
+}
+
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(
